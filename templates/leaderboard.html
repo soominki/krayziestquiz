@@ -1,0 +1,114 @@
+{% block content %}
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+    body {
+   		background: linear-gradient(to right, #ffcccc 10%, #66ffff 100%)
+   	}
+    </style>
+</head>
+<!-- Created a navigation bar using Bootstrap library.
+Source:https://getbootstrap.com/docs/4.0/components/navbar/.
+Used Bootstrap grid system to format pictures around the side and to create a table for the names and scores.
+Changed font color and style.-->
+<body>
+  <nav class="navbar navbar-light bg-pink lighten-5">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">
+          <img src="/static/black_logo.png" width="300" height="100" alt="Quiz Logo">
+        </a>
+      </div>
+      <form action="{{ url_for('score')}}">
+        <input type = "submit" value = "Start Over" class="btn btn-secondary navbar-btn text-light"></a>
+      </form>
+      <a href="{{url_for('categories')}}" class="btn btn-secondary navbar-btn text-light">Categories</a>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="text-center">
+     <div class="row">
+       <div class="col-md-12">
+         <font face="Impact" color="PaleVioletRed"><h1>Leaderboard</h1></font>
+        </div>
+      </div>
+    </div>
+    <div class="mb-2 p-2"></div>
+    <div class="container">
+      <div class="text-left">
+        <div class="row">
+          <div class="col-md-3">
+             <img src="/static/finesse.jpg" width="200" height="150" alt="Pop Hits">
+             <div class="mb-2 p-2"></div>
+             <img src="/static/BTS.png" width="200" height="150" alt="K-Pop">
+             <div class="mb-2 p-2"></div>
+             <img src="/static/Mariah_Carey.png" width="200" height="150" alt="Holiday">
+          </div>
+          <div class="col-md-7">
+            <!-- Displays 10 users with the top 10 scores-->
+            <table style = "width:100%">
+             <tr>
+               <th><font face="Verdana" color="MediumSlateBlue" size="5">Name</font></th>
+               <th><font face="Verdana" color="MediumSlateBlue" size="5">Score</font></th>
+             </tr>
+             <tr>
+               <td><font face="Verdana" color="SlateGrey" size="4"><strong>1.</strong></font><font face="Verdana" color="SlateGrey" size="4"> {{name0}} </font></td>
+               <td><font face="Verdana" color="SlateGrey" size="4"> {{score0}}</font><td>
+             </tr>
+             <tr>
+               <td><strong><font face="Verdana" color="SlateGrey" size="4">2.</font></strong><font face="Verdana" color="SlateGrey" size="4"> {{name1}} </font></td>
+               <td> <font face="Verdana" color="SlateGrey" size="4">{{score1}}</font><td>
+             </tr>
+             <tr>
+               <td><strong><font face="Verdana" color="SlateGrey" size="4">3.</font></strong><font face="Verdana" color="SlateGrey" size="4"> {{name2}}</font> </td>
+               <td><font face="Verdana" color="SlateGrey" size="4"> {{score2}}</font><td>
+             </tr>
+             <tr>
+               <td><strong><font face="Verdana" color="SlateGrey" size="4">4.</font></strong><font face="Verdana" color="SlateGrey" size="4"> {{name3}}</font> </td>
+               <td><font face="Verdana" color="SlateGrey" size="4">{{score3}}</font><td>
+             </tr>
+             <tr>
+               <td><strong><font face="Verdana" color="SlateGrey" size="4">5.</font></strong><font face="Verdana" color="SlateGrey" size="4"> {{name4}}</font> </td>
+               <td><font face="Verdana" color="SlateGrey" size="4"> {{score4}}</font><td>
+             </tr>
+             <tr>
+               <td><strong><font face="Verdana" color="SlateGrey" size="4">6.</font></strong><font face="Verdana" color="SlateGrey" size="4"> {{name5}} </font></td>
+               <td><font face="Verdana" color="SlateGrey" size="4"> {{score5}}</font><td>
+             </tr>
+             <tr>
+               <td><strong><font face="Verdana" color="SlateGrey" size="4">7.</font></strong><font face="Verdana" color="SlateGrey" size="4"> {{name6}}</font> </td>
+               <td><font face="Verdana" color="SlateGrey" size="4"> {{score6}}</font><td>
+             </tr>
+             <tr>
+               <td><strong><font face="Verdana" color="SlateGrey" size="4">8.</font></strong> <font face="Verdana" color="SlateGrey" size="4">{{name7}}</font> </td>
+               <td><font face="Verdana" color="SlateGrey" size="4"> {{score7}}</font><td>
+             </tr>
+             <tr>
+               <td><strong><font face="Verdana" color="SlateGrey" size="4">9.</font></strong><font face="Verdana" color="SlateGrey" size="4"> {{name8}} </font></td>
+               <td><font face="Verdana" color="SlateGrey" size="4"> {{score8}}</font><td>
+             </tr>
+             <tr>
+               <td><strong><font face="Verdana" color="SlateGrey" size="4">10.</font></strong><font face="Verdana" color="SlateGrey" size="4"> {{name9}}</font> </td>
+               <td><font face="Verdana" color="SlateGrey" size="4"> {{score9}}</font><td>
+             </tr>
+            </table>
+          </div>
+          <div class="col-md-2">
+            <img src="/static/zedd.jpg" width="200" height="150" alt="Dance Club">
+            <div class="mb-2 p-2"></div>
+            <img src="/static/blake_shelton.jpg" width="200" height="150" alt="Country">
+            <div class="mb-2 p-2"></div>
+            <img src="/static/xxxtentacion.jpg" width="200" height="150" alt="More Pop">
+          </div>
+        </div>
+      </div>
+  </div>
+  <div class="mb-2 p-2"></div>
+</body>
+</html>
+
+{% endblock %}

@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!doctype html>
+<html>
+<head>
+    	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  		<!--Added colors to regular html button using CSS. Source: https://www.w3schools.com/css/css3_buttons.asp-->
+    	 <style>
+    	body {
+    		background: linear-gradient(to right, #ffcccc 10%, #66ffff 100%)
+    	}
+    	.btn0{
+    		background-color: #7B68EE;
+    		border: #1E90FF;
+    			font-family: "Arial Black", Gadget, sans-serif;
+    			font-size: 28px;
+    		color: #fff;
+    		letter-spacing: 1px;
+    		padding: 8px 17px;
+    		font-size: 13px;
+    		line-height: 3.0;
+    		text-decoration: none;
+    	}
+    	.btn0:hover{
+    		background-color: #B0C4DE;
+    		border: #1E90FF;
+    			font-family: "Arial Black", Gadget, sans-serif;
+    			font-size: 28px;
+    		color: #fff;
+    		letter-spacing: 1px;
+    		padding: 8px 17px;
+    		font-size: 13px;
+    		line-height: 3.0;
+    		text-decoration: none;
+    	}
+
+    	.button {
+    		border-radius: 8px;
+    	}
+    	</style>
+    </head>
+	<body>
+		<!-- Containers containing pictures were inserted using the Bootstrap grid system. Bootstrap was also used to add the thumbnail effect to added pictures-->
+	    <h1><font face="Impact" color="PaleVioletRed">Choose a Genre:</font></h1>
+	    <div class="container">
+	    	<div class="row">
+	    		<div class="col-md-4">
+	    			<img src="static/Dance_Club.gif" class="img-thumbnail" alt="Dance Club Hits" style="width:350px;height:200px;" />
+	    		</div>
+	    		<div class="col-md-4">
+	    			<img src="static/Beyonce.gif" class="img-thumbnail" alt="Current Pop Hits" style="width:350px;height:200px;" />
+	    		</div>
+	    		<div class="col-md-4">
+	    			<img src="static/BTS.gif" class="img-thumbnail" alt="Top Kpop" style="width:350px;height:200px;" />
+	    		</div>
+	    	</div>
+	    </div>
+	    <form action="{{ url_for('question')}}">
+		    <div class="container">
+		    	<div class="text-center">
+		    		<div class="row">
+				    	<div class="col-md-4">
+				    		<button class="btn0 button" name="genre" type="submit" value= "dance-club-play-songs">Dance Club Hits</button>
+				    	</div>
+				    	<div class="col-md-4">
+				    		<button class="btn0 button" name="genre" type="submit" value= "hot-100">Current Pop Hits</button>
+				    	</div>
+				    	<div class="col-md-4">
+				    		<button class="btn0 button" name="genre" type="submit" value= "billboard-korea-k-pop-100">Top K-POP</button>
+				    	</div>
+		    		</div>
+		    	</div>
+		    </div>
+		</form>
+	   	<div class="container">
+	    	<div class="row">
+	    		<div class="col-md-3"></div>
+	    		<div class="col-md-3">
+	    			<img src="static/Holiday.gif" class="img-thumbnail" alt="Holiday Hits" style="width:350px;height:200px;" />
+	    		</div>
+	    		<div class="col-lg-3">
+	    			<img src="static/Country.gif" class="img-thumbnail" alt="Country Classics" style="width:350px;height:200px;" />
+	    		</div>
+	    		<div class="col-md-3"></div>
+	    	</div>
+	    </div>
+	    <form action="{{ url_for('question')}}">
+	    <div class="container">
+	    	<div class="text-center">
+	    		<div class="row">
+	    			<div class="col-md-3"></div>
+		    		<div class="col-md-3">
+		    			<button class="btn0 button" name="genre" type="submit" value= "holiday-streaming-songs">Holiday Hits</button>
+		    		</div>
+		    		<div class="col-md-3">
+		    			<button class="btn0 button" name="genre" type="submit" value=  "greatest-country-songs">Country Classics</button>
+		    		</div>
+		    		<div class="col-md-3"></div>
+	    		</div>
+	    	</div>
+	    </div>
+		</form>
+	</body>
+</html>
+
+{% endblock %}

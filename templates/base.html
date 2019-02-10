@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Used CSS to create a constant background gradient color on every page.
+    Used Bootstrap library to create a navigation bar to connect Home, Categories, and Leaderboard HTMLs.
+    Used grid system to move Username and Scoreto the top and align text.
+    Navbar Source:https://getbootstrap.com/docs/4.0/components/navbar/-->
+    <style>
+      body {
+        background: linear-gradient(to right, #ffcccc 10%, #66ffff 100%)
+      }
+    </style>
+    {% block head %}
+    <title>Krayziest Song Quiz</title>
+    {% endblock %}
+  </head>
+  <body>
+    <nav class="navbar navbar-light bg-pink lighten-5">
+      <div class="container-fluid">
+        <div class="navbar-header">
+           <a class="navbar-brand" href="#">
+            <img src="/static/black_logo.png" width="300" height="100" alt="Quiz Logo">
+           </a>
+        </div>
+          <form action="{{ url_for('score')}}">
+            <input type = "submit" value = "Start Over" class="btn btn-secondary navbar-btn text-light"></a>
+          </form>
+          <a href="{{url_for('categories')}}" class="btn btn-secondary navbar-btn text-light">Categories</a>
+          <a href="{{url_for('leaderboard')}}" class="btn btn-secondary navbar-btn text-light">Leader Board</a>
+      </div>
+    </nav>
+     <div class="container">
+     <div class="text-right">
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-2"></div>
+        <div class="col-md-2"></div>
+        <div class="col-md-2"></div>
+        <div class="col-md-2"></div>
+        <div class="col-md-2">
+            <p><font face="Impact" color="MediumSlateBlue" size="3"><b>Username:</b></font><font face="Impact" color="PaleVioletRed" size="3"> {{username}} </font></p>
+            {% if session['num_correct'] == 0 and session['num_total'] == 0 %}
+            <p> <font face="Impact" color="MediumSlateBlue" size="3"><b>Current score:</b></font><font face="Impact" color="PaleVioletRed" size="3"> N/A</font></p>
+            {% else %}
+            <p> <font face="Impact" color="MediumSlateBlue" size="3">Current score:</font><font face="Impact" color="PaleVioletRed" size="3"> {{score}}/{{total}}</font></p>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="text-center">
+        <div class="row">
+          <div class="col-md-12">
+          <div id="content">{% block content %}{% endblock %}</div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <br>
+  <br>
+</html>

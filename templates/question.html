@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!doctype html>
+<html>
+<head>
+    	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  		<!-- CSS for color and fonts of HTML button. Changed color and fonts of text. Source: https://www.w3schools.com/css/css3_buttons.asp-->
+    	 <style>
+    	body {
+    		background: linear-gradient(to right, #ffcccc 10%, #66ffff 100%)
+    	}
+    	.btn4{
+    		background-color: #7B68EE;
+    		border: #1E90FF;
+    			font-family: "Arial Black", Gadget, sans-serif;
+    			font-size: 28px;
+    		color: #fff;
+    		letter-spacing: 1.5px;
+    		padding: 8px 10px;
+    		font-size: 11px;
+    		line-height: 3.0;
+    		text-decoration: none;
+    	}
+    	.btn4:hover{
+    		background-color: #B0C4DE;
+    		border: #1E90FF;
+    			font-family: "Arial Black", Gadget, sans-serif;
+    			font-size: 28px;
+    		color: #fff;
+    		letter-spacing: 1.5px;
+    		padding: 8px 12px;
+    		font-size: 11px;
+    		line-height: 3.0;
+    		text-decoration: none;
+    	}
+
+    	.button {
+    		border-radius: 8px;
+    	}
+    	</style>
+    </head>
+<body>
+<!-- Grid system to center radio buttons as well as insert gifs on the side.-->
+<div class="container">
+	<div class="row">
+		<div class="col-md-2">
+			<img src="/static/musicnote.gif" width="250" height="150" alt="Color Musical Notes">
+		</div>
+		<div class="col-md-1"></div>
+		<div class="col-md-6">
+		<h2>
+		<audio controls>
+			<source src="{{audio_track}}" type = "audio/mp4">
+		</audio>
+
+		</h2>
+    <!-- looped through song choices and displayed them on the question page for users to choose from -->
+		<form action="{{ url_for('answer')}}">
+		  {% for i in song_choices %}
+		      <input type="radio" name="song_guess" id = "{{ i }}" value = "{{ i }}">
+		      <font face="Impact" color="SlateGrey"><label for = "{{ i }}"> {{ i }} </label></font>
+		      <br>
+		  {% endfor %}
+    <!--pass correct answer info as hidden elements to be used in answer.py-->
+		<input type ="hidden" name = "genre" value = "{{chart_name}}">
+		<input type = "hidden" name = "correct_title" value = "{{title_answer}}">
+		<input type = "hidden" name = "correct_artist" value = "{{artist_answer}}">
+		<input type = "hidden" name = "correct_song" value = "{{song_answer}}">
+		<input class="btn4 button" type = "submit">
+		</form>
+	</div>
+	<div class="col-md-2">
+			<img src="/static/musicnote.gif" width="250" height="150" alt="Color Musical Notes">
+	</div>
+</div>
+</div>
+</body>
+
+{% endblock %}

@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!doctype html>
+<html>
+<head>
+    	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  		<!-- Used CSS to create colors for HTML buttons and changes font colors and style. Source: https://www.w3schools.com/css/css3_buttons.asp-->
+    	 <style>
+    	body {
+    		background: linear-gradient(to right, #ffcccc 10%, #66ffff 100%)
+    	}
+    	.btn1{
+    		background-color: #DC143C;
+    		border: #1E90FF;
+    			font-family: "Arial Black", Gadget, sans-serif;
+    			font-size: 28px;
+    		color: #fff;
+    		letter-spacing: 1px;
+    		padding: 8px 17px;
+    		font-size: 13px;
+    		line-height: 3.0;
+    		text-decoration: none;
+    	}
+    	.btn1:hover{
+    		background-color: #E9967A;
+    		border: #1E90FF;
+    			font-family: "Arial Black", Gadget, sans-serif;
+    			font-size: 28px;
+    		color: #fff;
+    		letter-spacing: 1px;
+    		padding: 8px 17px;
+    		font-size: 13px;
+    		line-height: 3.0;
+    		text-decoration: none;
+    	}
+
+    	.btn2{
+    		background-color: #2E8B57;
+    		border: #1E90FF;
+    			font-family: "Arial Black", Gadget, sans-serif;
+    			font-size: 28px;
+    		color: #fff;
+    		letter-spacing: 1px;
+    		padding: 8px 17px;
+    		font-size: 13px;
+    		line-height: 3.0;
+    		text-decoration: none;
+    	}
+    	.btn2:hover{
+    		background-color: #98FB98;
+    		border: #1E90FF;
+    			font-family: "Arial Black", Gadget, sans-serif;
+    			font-size: 28px;
+    		color: #fff;
+    		letter-spacing: 1px;
+    		padding: 8px 17px;
+    		font-size: 13px;
+    		line-height: 3.0;
+    		text-decoration: none;
+    	}
+
+    	.button {
+    		border-radius: 8px;
+    	}
+    	</style>
+    </head>
+<body>
+<font face="Impact" color="Maroon"><h2>Would you like to start over?</h2></font>
+
+<br>
+<!-- Give users the options to start over game or go back to categories page-->
+<p>
+<form action="{{ url_for('home')}}">
+    <input class="btn1 button" type="submit" name="clear_choice" value = "Yes">
+</form>
+<br>
+<form action="{{ url_for('categories')}}">
+    <input class="btn2 button" type="submit" name="clear_choice" value = "No">
+</form>
+<br>
+</p>
+</body>
+
+
+{% endblock %}

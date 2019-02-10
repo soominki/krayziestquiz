@@ -1,0 +1,71 @@
+{% block content %}
+<!doctype html>
+<html>
+<head>
+    	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <!-- Used CSS to create color for HTML button-->
+    	 <style>
+    	body {
+    		background: linear-gradient(to right, #ffcccc 10%, #66ffff 100%)
+    	}
+      .btncls{
+        background-color: #7B68EE;
+        border: #1E90FF;
+          font-family: "Arial Black", Gadget, sans-serif;
+          font-size: 20px;
+        color: #fff;
+        letter-spacing: 1px;
+        padding: 8px 17px;
+        font-size: 8px;
+        line-height: 3.0;
+        text-decoration: none;
+      }
+      .btncls:hover{
+        background-color: #B0C4DE;
+        border: #1E90FF;
+          font-family: "Arial Black", Gadget, sans-serif;
+          font-size: 20px;
+        color: #fff;
+        letter-spacing: 1px;
+        padding: 8px 17px;
+        font-size: 8px;
+        line-height: 3.0;
+        text-decoration: none;
+      }
+
+      .button {
+        border-radius: 8px;
+      }
+    	</style>
+    </head>
+	<body>
+    <!-- Used Bootstrap grid system to insert gifs and logo. Html form was used to create the "Enter name" bar.-->
+    <div class="mb-5 p-5"></div>
+    <div class="container">
+      <div class="text-center">
+       <div class="row align-items-center">
+        <div class="col-md-2 align-self-start">
+          <img src="static/musical.gif" width="200" height="150" alt="Musical Notes">
+        </div>
+        <div class="col-md-8">
+            <img src="static/black_logo.png" width="550" height="250" alt="Quiz Logo">
+            <!-- Used html form to get username from user -->
+            <h5>Enter your name:</h5>
+            <form action="{{ url_for('categories')}}">
+              <ul>
+                <input type = "text" name = "username" required>
+                <input class="btncls button" type="submit">
+              </ul>
+            </form>
+        </div>
+        <div class="col-md-2 align-self-start">
+          <img src="static/musical.gif" width="200" height="150" alt="Musical Notes">
+        </div>
+	    	</div>
+	    </div>
+	</body>
+</html>
+
+{% endblock %}
